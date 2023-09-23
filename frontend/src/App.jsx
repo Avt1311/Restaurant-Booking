@@ -9,6 +9,8 @@ import { AnimatePresence } from "framer-motion";
 import { UserProvider } from "./UserContext";
 import Profile from "./components/Profile";
 import UserAuth from "./components/UserAuth";
+import BrowseRestaurant from "./components/BrowseRestaurant";
+import BookRestaurant from "./components/BookRestaurant";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route element={<Signup />} path="signup" />
             <Route element={<Login />} path="login" />
             <Route element={<UserAuth> <Profile /> </UserAuth>} path="profile" />
+            <Route element={<BrowseRestaurant />} path="browse" />
+            <Route element={<BookRestaurant />} path="book/:index" />
           </Routes>
         </AnimatePresence>
         </UserProvider>

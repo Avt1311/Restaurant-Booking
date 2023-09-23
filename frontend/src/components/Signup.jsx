@@ -124,19 +124,19 @@ const Signup = () => {
                 value={signupForm.values.password}
               />
 
-              <label htmlFor="">Age</label>
+              <label htmlFor="">Mobile Number</label>
               <span style={{ color: "red", fontSize: "0.7em", marginLeft: 10 }}>
-                {signupForm.errors.age}
+                {signupForm.errors.mobile}
               </span>
               <input
-                type="number"
+                type="string"
                 className="form-control mb-3"
-                name="age"
+                name="mobile"
                 onChange={signupForm.handleChange}
-                value={signupForm.values.age}
+                value={signupForm.values.mobile}
               />
 
-              <input type="file" onChange={uploadFile} />
+              
 
               <button
                 disabled={signupForm.isSubmitting}

@@ -3,6 +3,7 @@ import React from "react";
 import Swal from "sweetalert2";
 import * as Yup from 'yup';
 import {motion} from 'framer-motion';
+import useUserContext from "../UserContext";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is Required'),
@@ -11,23 +12,25 @@ const LoginSchema = Yup.object().shape({
 
 const Login = () => {
 
+  const {setLoggedIn} = useUserContext();
+
   // Initializing formik
   const loginForm = useFormik({
     initialValues: {
       email : "",
       password : ""
     },
-    onSubmit : async( values ) => {
+    onSubmit : async ( values, {resetForm} ) => {
       console.log(values);
-  
-     const res = await fetch('http://localhost:5000/user/authenticate', {
+
+      const res = await fetch('http://localhost:5000/user/authenticate', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
           'Content-Type' : 'application/json'
         }
       });
-        
+
       console.log(res.status);
 
       if(res.status === 200){
@@ -38,16 +41,16 @@ const Login = () => {
         });
 
         const data = await res.json();
-        // to conert js code to json- json.stringify...
-        sessionStorage.setItem('user', JSON.stringify(data));
-       // console.log(data);
+        sessionStorage.setItem('user', JSON.stringify(data) );
+        setLoggedIn(true);
+        resetForm();
 
       }else if(res.status === 401){
         Swal.fire({
           icon : 'error',
           title : 'Error',
           text : 'Email or Password is incorrect 😢'
-        });
+        })
       }else{
         Swal.fire({
           icon : 'error',
@@ -56,21 +59,19 @@ const Login = () => {
         })
       }
 
-        // write code to submit form to server
+      // write code to submit form to server
     },
 
     validationSchema : LoginSchema
-
-
   });
+
   return (
-    <motion.div
+    <motion.div 
     className="bg"
       initial={{opacity: 0, x: '100%' }}
       animate={{opacity: 1, x: 0}}
       exit={{opacity: 0, x: '-100%'}}
       transition={{duration: 0.3, type: 'spring', stiffness: 50, damping: 10}}
-    
     >
       <div className="w-25">
         <div className="card">
@@ -81,7 +82,7 @@ const Login = () => {
             <form onSubmit={loginForm.handleSubmit}>
               <label htmlFor="">Email Address</label>
               <span style={{color: 'red', fontSize: '0.7em', marginLeft: 10}}>{loginForm.errors.email}</span>
-              <input type="email" className="form-control mb-3" name="email" onChange={loginForm.handleChange}  value={loginForm.values.email} />
+              <input type="email" className="form-control mb-3" name="email" onChange={loginForm.handleChange} value={loginForm.values.email} />
 
               <label htmlFor="">Password</label>
               <span style={{color: 'red', fontSize: '0.7em', marginLeft: 10}}>{loginForm.errors.password}</span>
@@ -89,6 +90,7 @@ const Login = () => {
 
               <button className="btn btn-primary w-100 mt-5">Submit</button>
             </form>
+            
           </div>
         </div>
       </div>

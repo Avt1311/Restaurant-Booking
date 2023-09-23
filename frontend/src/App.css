@@ -1,7 +1,4 @@
-.myclass{
-  color: red;
-  background-color: yellow;
-}
+
 
 .nav-item .active{
   font-weight: bold;
@@ -9,15 +6,25 @@
   color: crimson !important;
 }
 
-.list-back{
-  background-image: url("/public/bg.jpg");
-}
+
 
 .bg{
-  background-image: url('https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/4k/original/15.jpg?3');
+  background-image: url('https://img.freepik.com/premium-photo/background-cooking-black-wooden-background-top-view-free-space-your-text_187166-5650.jpg?size=626&ext=jpg&ga=GA1.1.1607141178.1690346399&semt=ais');
   background-size: cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.bookbtn_link{
+  text-decoration: none;
+  color:black;
+  border: 2px solid black;
+  width: 30%;
+  background-color: rgb(121, 198, 198);
+  font-weight: bolder;
+  color: black;
+}
+
+
+

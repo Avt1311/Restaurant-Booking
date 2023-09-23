@@ -1,17 +1,16 @@
 import React from 'react'
 
+
 const Home = () => {
   return (
+    <>
     <div>
-         <h1>Welcome to Homepage</h1>
-        <h1 className='myclass'>My React App</h1>
-        <input type='text' />
-        <h2 style={{color: "green", fontSize: 30}}>Using Inline CSS</h2>
-        <img src="/logo192.png" alt="" />
-
-        
+         <h1 style={{ color: 'black', fontSize: 50}}>Welcome to Homepage</h1>  
     </div>
+    
+    
+    </>
   )
 }
 
-export default Home;
+export default Home
