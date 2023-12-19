@@ -26,7 +26,7 @@ function App() {
             <Route element={<Signup />} path="signup" />
             <Route element={<Login />} path="login" />
             <Route element={<UserAuth> <Profile /> </UserAuth>} path="profile" />
-            <Route element={<BrowseRestaurant />} path="browse" />
+            <Route element={<UserAuth> <BrowseRestaurant /> </UserAuth>} path="browse" />
             <Route element={<BookRestaurant />} path="book/:index" />
           </Routes>
         </AnimatePresence>

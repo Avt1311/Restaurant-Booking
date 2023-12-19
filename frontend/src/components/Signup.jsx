@@ -136,7 +136,7 @@ const Signup = () => {
                 value={signupForm.values.mobile}
               />
 
-              
+              <input type="file" onChange={uploadFile} />
 
               <button
                 disabled={signupForm.isSubmitting}

@@ -44,7 +44,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
     <a className="navbar-brand" href="#">
-      Dineout
+      DineIn
     </a>
     <button
       className="navbar-toggler"
@@ -66,11 +66,11 @@ const Navbar = () => {
         </li>
         
 
-        <li className="nav-item">
+        {/*  <li className="nav-item">
           <NavLink className="nav-link" to="/bookrestaurant">
             Book Restaurant
           </NavLink>
-        </li>
+        </li> */}
 
         <li className="nav-item">
           <NavLink className="nav-link" to="/browse">

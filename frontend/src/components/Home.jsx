@@ -4,9 +4,19 @@ import React from 'react'
 const Home = () => {
   return (
     <>
-    <div>
-         <h1 style={{ color: 'black', fontSize: 50}}>Welcome to Homepage</h1>  
-    </div>
+     <div className="main">
+      <div className="text">
+        <h1 className='size'>Hello Welcome To DineIn</h1>
+        <p className='size1'>Book Your Table Now</p>
+        
+      </div>
+      
+
+      
+     </div>
+     
+    
+   
     
     
     </>
